@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 
 def create_app(test_config=None):
     # create and configure the app
@@ -23,8 +23,13 @@ def create_app(test_config=None):
         pass
 
     # a simple page that says hello
-    @app.route('/hello')
+    @app.route('/')
     def hello():
-        return 'Hello, World!'
+        return render_template('main/index.html')
+
+    from . import simple_nn
+    app.register_blueprint(simple_nn.simple_nn)
+    app.add_url_rule('/simple_nn', endpoint='index')
+
 
     return app
