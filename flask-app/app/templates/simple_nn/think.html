@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+<h1>{% block title %}Simple Neural Network - New input{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+{% include 'simple_nn/table.html' %}
+
+<h3>New inputs / output (guess)</h3>
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <tr>
+    <td colspan="3">Inputs</td>
+    <td>Output</td>
+  </tr>
+
+  <tr>
+    {% for input in data['new_input']: %}
+    <td>{{ input }}</td>
+    {% endfor %}
+
+    {% for output in data['guess']: %}
+    <td>{{ output }} </td>
+    {% endfor %}
+  </tr>
+
+</table>
+
+<hr>
+
+
+{% endblock %}

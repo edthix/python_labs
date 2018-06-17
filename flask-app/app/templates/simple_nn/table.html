@@ -1,0 +1,43 @@
+<hr>
+
+<h2>Trained inputs and outputs</h2>
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <tr>
+    <td colspan="3">Inputs</td>
+    <td>Output</td>
+  </tr>
+
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+  </tr>
+
+  <tr>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+
+  <tr>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+
+  <tr>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+  </tr>
+</table>
+
+<hr>
+
+<a href="{{ url_for('simple_nn.think', new_input='000') }}">Test with 000</a> <br>
+<a href="{{ url_for('simple_nn.think', new_input='110') }}">Test with 110</a>

@@ -63,12 +63,17 @@ def index():
     }
     return render_template('simple_nn/index.html', data=data)
 
-@simple_nn.route('/simple_nn/test100')
-def test100():
-    guess = nn.think(array([1, 0, 0]))
-    return "Considering new situation [1, 0, 0] -> ?: {guess}".format(guess=guess)
+@simple_nn.route('/simple_nn/<string:new_input>')
+def think(new_input):
+    new_input = array(list(new_input), dtype=int)
+    guess = nn.think(new_input)
 
-@simple_nn.route('/simple_nn/test010')
-def test010():
-    guess = nn.think(array([0, 1, 0]))
-    return "Considering new situation [0, 1, 0] -> ?: {guess}".format(guess=guess)
+    data = {
+        'starting_synapse': starting_synapse,
+        'inputs': training_inputs,
+        'trained_outputs': training_outputs,
+        'new_input': new_input,
+        'guess': guess ,
+        'rounded_guess': round(guess[0])
+    }
+    return render_template('simple_nn/think.html', data=data)
